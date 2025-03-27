@@ -1,0 +1,994 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
+    
+    
+      
+        <title>Konveyor AI - Dev Spaces Demo</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#run-konveyor-ai-in-openshift-dev-spaces-with-vs-code-extension" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Konveyor AI - Dev Spaces Demo" class="md-header__button md-logo" aria-label="Konveyor AI - Dev Spaces Demo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Konveyor AI - Dev Spaces Demo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rrbanda/kai-demo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Konveyor AI - Dev Spaces Demo" class="md-nav__button md-logo" aria-label="Konveyor AI - Dev Spaces Demo" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Konveyor AI - Dev Spaces Demo
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rrbanda/kai-demo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-build-the-custom-dev-spaces-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Step 1: Build the Custom Dev Spaces Image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Step 1: Build the Custom Dev Spaces Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Build &amp; Push
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-create-devfileyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Step 2: Create devfile.yaml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-clone-the-example-codebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      📂 Step 3: Clone the Example Codebase
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-configure-the-extension-specific-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Step 4: Configure the Extension specific details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Step 4: Configure the Extension specific details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ensure-vscodesettingsjson-includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ensure .vscode/settings.json includes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confgure-the-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confgure the LLM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-source-and-target-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure source and target dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-run-the-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Step 5: Run the Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-and-filter-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 View and Filter Issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Apply Fixes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Apply Fixes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-import-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Import Namespaces
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-advanced-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      📐 Apply Advanced Fixes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📐 Apply Advanced Fixes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modify-scope-cdi-beans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modify Scope (CDI Beans)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejb-replacements" class="md-nav__link">
+    <span class="md-ellipsis">
+      EJB Replacements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jms-to-smallrye" class="md-nav__link">
+    <span class="md-ellipsis">
+      JMS to SmallRye
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentic-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Agentic Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Expected Behavior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Example Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      📎 References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧰 Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-build-the-custom-dev-spaces-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      🏗️ Step 1: Build the Custom Dev Spaces Image
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Step 1: Build the Custom Dev Spaces Image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Build &amp; Push
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-create-devfileyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      📦 Step 2: Create devfile.yaml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-clone-the-example-codebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      📂 Step 3: Clone the Example Codebase
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-configure-the-extension-specific-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Step 4: Configure the Extension specific details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Step 4: Configure the Extension specific details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ensure-vscodesettingsjson-includes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ensure .vscode/settings.json includes:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confgure-the-llm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confgure the LLM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-source-and-target-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure source and target dependencies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-run-the-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Step 5: Run the Analysis
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-and-filter-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 View and Filter Issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🛠️ Apply Fixes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Apply Fixes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#change-import-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change Import Namespaces
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apply-advanced-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      📐 Apply Advanced Fixes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📐 Apply Advanced Fixes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modify-scope-cdi-beans" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modify Scope (CDI Beans)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejb-replacements" class="md-nav__link">
+    <span class="md-ellipsis">
+      EJB Replacements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jms-to-smallrye" class="md-nav__link">
+    <span class="md-ellipsis">
+      JMS to SmallRye
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#agentic-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Agentic Workflow
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Expected Behavior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      📁 Example Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      📎 References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="run-konveyor-ai-in-openshift-dev-spaces-with-vs-code-extension">🧠 Run Konveyor AI in OpenShift Dev Spaces with VS Code Extension<a class="headerlink" href="#run-konveyor-ai-in-openshift-dev-spaces-with-vs-code-extension" title="Permanent link">&para;</a></h1>
+<p>This guide walks you through running Konveyor AI using <strong>OpenShift Dev Spaces</strong> with VS Code as an IDE.<br />
+You'll analyze and modernize a real Java application using the Kai VS Code extension in a Red Hat Dev Spaces workspace.</p>
+<hr />
+<h2 id="prerequisites">🧰 Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Access to an OpenShift cluster with <strong>Dev Spaces enabled</strong></li>
+<li><a href="https://podman.io/getting-started/installation"><code>podman</code></a> installed locally</li>
+<li>A <a href="https://quay.io">Quay.io</a> container registry account</li>
+<li>Kai <code>.vsix</code> file from <a href="https://github.com/konveyor/editor-extensions/releases">Konveyor AI Releases</a></li>
+<li>OpenAI credentials to use GPT-4o or a similar LLM</li>
+</ul>
+<hr />
+<h2 id="step-1-build-the-custom-dev-spaces-image">🏗️ Step 1: Build the Custom Dev Spaces Image<a class="headerlink" href="#step-1-build-the-custom-dev-spaces-image" title="Permanent link">&para;</a></h2>
+<p>Create a <code>Containerfile</code> (based on Red Hat UBI for Dev Spaces):</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Use official Dev Spaces base </span>
+<span class="c">#FROM registry.redhat.io/devspaces/udi-rhel9:3.18-2.1741779985</span>
+<span class="k">FROM</span><span class="w"> </span><span class="s">quay.io/devfile/universal-developer-image:ubi9-latest</span>
+
+<span class="k">USER</span><span class="w"> </span><span class="s">root</span>
+
+<span class="c"># Avoid flaky mirrors, timeouts, or zchunk checksum mismatches</span>
+<span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;fastestmirror=True&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/dnf/dnf.conf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;skip_if_unavailable=True&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/dnf/dnf.conf<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;zchunk=False&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/dnf/dnf.conf
+
+<span class="c"># Install dependencies required by Konveyor AI + typical tools</span>
+<span class="k">RUN</span><span class="w"> </span>dnf<span class="w"> </span>clean<span class="w"> </span>all<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>--nobest<span class="w"> </span>--allowerasing<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>python3.12<span class="w"> </span>python3.12-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>java-17-openjdk-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>nodejs<span class="w"> </span>maven<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>unzip<span class="w"> </span>git<span class="w"> </span>curl<span class="w"> </span>zsh<span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>gcc<span class="w"> </span>make<span class="w"> </span>glibc-devel<span class="w"> </span>libffi-devel<span class="w"> </span>openssl-devel<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="o">&amp;&amp;</span><span class="w"> </span>dnf<span class="w"> </span>clean<span class="w"> </span>all
+
+<span class="c"># Add Kai extension from GitHub release</span>
+<span class="k">RUN</span><span class="w"> </span>curl<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>/konveyor.vsix<span class="w"> </span>https://github.com/konveyor/editor-extensions/releases/download/v0.0.13/konveyor-v0.0.13.vsix
+<span class="k">ENV</span><span class="w"> </span><span class="nv">DEFAULT_EXTENSIONS</span><span class="o">=</span>/konveyor.vsix
+
+
+<span class="k">ENV</span><span class="w"> </span><span class="nv">DEFAULT_EXTENSIONS</span><span class="o">=</span>/konveyor-v0.0.13.vsix<span class="w">    </span>
+
+<span class="k">USER</span><span class="w"> </span><span class="s">user</span>
+</code></pre></div>
+<h3 id="build-push">🛠️ Build &amp; Push<a class="headerlink" href="#build-push" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>podman<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>quay.io/&lt;your-username&gt;/kai-devspaces:latest<span class="w"> </span>.
+podman<span class="w"> </span>push<span class="w"> </span>quay.io/&lt;your-username&gt;/kai-devspaces:latest
+</code></pre></div>
+<hr />
+<h2 id="step-2-create-devfileyaml">📦 Step 2: Create <code>devfile.yaml</code><a class="headerlink" href="#step-2-create-devfileyaml" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nt">schemaVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.2.0</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kai-devspaces</span>
+<span class="nt">components</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kai-dev-container</span>
+<span class="w">    </span><span class="nt">container</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">quay.io/&lt;your-username&gt;/kai-devspaces:latest</span>
+<span class="w">      </span><span class="nt">memoryLimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8Gi</span>
+</code></pre></div>
+<p>Launch a new Dev Spaces workspace using this <code>devfile.yaml</code>.</p>
+<hr />
+<p><img width="1221" alt="Screenshot 2025-03-26 at 4 40 04 PM" src="https://github.com/user-attachments/assets/fb1bc6f7-5b82-4394-82e1-26b2182827eb" /></p>
+<p><img width="1500" alt="Screenshot 2025-03-26 at 4 36 30 PM" src="https://github.com/user-attachments/assets/1cd9e106-dca6-42d6-8262-3631ca8d801d" /></p>
+<p><img width="1511" alt="Screenshot 2025-03-26 at 4 42 59 PM" src="https://github.com/user-attachments/assets/a4f437fb-467f-42c0-9200-d7dfa1ce13ea" /></p>
+<h2 id="step-3-clone-the-example-codebase">📂 Step 3: Clone the Example Codebase<a class="headerlink" href="#step-3-clone-the-example-codebase" title="Permanent link">&para;</a></h2>
+<p>In your Dev Spaces terminal:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/rrbanda/coolstore.git
+<span class="nb">cd</span><span class="w"> </span>coolstore
+</code></pre></div>
+<hr />
+<h2 id="step-4-configure-the-extension-specific-details">⚙️ Step 4: Configure the Extension specific details<a class="headerlink" href="#step-4-configure-the-extension-specific-details" title="Permanent link">&para;</a></h2>
+<h3 id="ensure-vscodesettingsjson-includes">Ensure <code>.vscode/settings.json</code> includes:<a class="headerlink" href="#ensure-vscodesettingsjson-includes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;konveyor.analysis.useDefaultRulesets&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;konveyor.analysis.labelSelector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;(konveyor.io/target=jakarta-ee || konveyor.io/target=openjdk11 || konveyor.io/target=openjdk17) || (discovery)&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="confgure-the-llm">Confgure the LLM<a class="headerlink" href="#confgure-the-llm" title="Permanent link">&para;</a></h3>
+<h3 id="configure-source-and-target-dependencies">Configure source and target dependencies<a class="headerlink" href="#configure-source-and-target-dependencies" title="Permanent link">&para;</a></h3>
+<p>https://github.com/user-attachments/assets/3e498252-f620-4985-bac7-e22b17819ec6</p>
+<hr />
+<h2 id="step-5-run-the-analysis">🚀 Step 5: Run the Analysis<a class="headerlink" href="#step-5-run-the-analysis" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Open the Command Palette (<code>Cmd+Shift+P</code> or <code>Ctrl+Shift+P</code>)</li>
+<li>Run: <strong>Konveyor: Run Analysis</strong></li>
+<li>Once the RPC server is initialized, navigate to the <strong>Konveyor Analysis View</strong> and run the analysis</li>
+</ol>
+<p><img alt="Run Analysis" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/run_analysis.png" /></p>
+<hr />
+<h2 id="view-and-filter-issues">🧾 View and Filter Issues<a class="headerlink" href="#view-and-filter-issues" title="Permanent link">&para;</a></h2>
+<p>The Konveyor Analysis View will list issues by file. Use the issue panel to filter and navigate easily:</p>
+<p><img alt="Analysis View" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/konveyor_analysis_view.png" /></p>
+<p>Lost the panel? Use the Command Palette and reopen the view:</p>
+<p><img alt="Reopen Panel" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/konveyor_analysis_view_1.png" /></p>
+<hr />
+<h2 id="apply-fixes">🛠️ Apply Fixes<a class="headerlink" href="#apply-fixes" title="Permanent link">&para;</a></h2>
+<h3 id="change-import-namespaces">Change Import Namespaces<a class="headerlink" href="#change-import-namespaces" title="Permanent link">&para;</a></h3>
+<p>Search for a file like <code>InventoryEntity.java</code>, click the fix icon, and choose the effort level (Low/Medium/High):</p>
+<p><img alt="Request Fix" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/request_fix.png" /></p>
+<p>Review the generated suggestion:</p>
+<p><img alt="Resolution Details 1" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/resolution_details1.png" />
+<img alt="Resolution Details 2" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/resolution_details2.png" /></p>
+<p>Use the Diff view to inspect and accept:</p>
+<p><img alt="Change Import" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/change_import_namespaces.png" /></p>
+<hr />
+<h2 id="apply-advanced-fixes">📐 Apply Advanced Fixes<a class="headerlink" href="#apply-advanced-fixes" title="Permanent link">&para;</a></h2>
+<h3 id="modify-scope-cdi-beans">Modify Scope (CDI Beans)<a class="headerlink" href="#modify-scope-cdi-beans" title="Permanent link">&para;</a></h3>
+<p>Fix files like <code>CatalogService.java</code>:</p>
+<p><img alt="CDI Fix 1" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/cdi_bean_requirement1.png" />
+<img alt="CDI Fix 2" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/cdi_bean_requirement2.png" /></p>
+<h3 id="ejb-replacements">EJB Replacements<a class="headerlink" href="#ejb-replacements" title="Permanent link">&para;</a></h3>
+<p>For <code>ShippingService.java</code>:</p>
+<p><img alt="EJB REST Replace" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/shippingService.png" /></p>
+<hr />
+<h3 id="jms-to-smallrye">JMS to SmallRye<a class="headerlink" href="#jms-to-smallrye" title="Permanent link">&para;</a></h3>
+<p>Resolve JMS issues by selecting <strong>Medium</strong> effort:</p>
+<p><img alt="JMS Migration" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/jmstosmallrye.png" />
+<img alt="JMS Fix 1" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/jmstosmllrye1.png" />
+<img alt="JMS Fix 2" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/jmstosmallrye2.png" />
+<img alt="JMS Fix 3" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/jmstosmallrye3.png" />
+<img alt="JMS Fix 4" src="https://github.com/konveyor/kai/raw/main/docs/scenarios/javaEE_to_quarkus/images/jmstosmallrye4.png" /></p>
+<hr />
+<h2 id="agentic-workflow">💡 Agentic Workflow<a class="headerlink" href="#agentic-workflow" title="Permanent link">&para;</a></h2>
+<p>Understand how Kai orchestrates fixes behind the scenes:</p>
+<div class="highlight"><pre><span></span><code>graph LR
+ A[Validator] --&gt;
+ B[TaskManager] --&gt; 
+ C{TaskRunners}
+   C --&gt;D[Analyzer Agent]--&gt;G
+   C --&gt;E[MavenCompiler Agent]--&gt;G
+   C --&gt;F[Maven Dependency Agent]--&gt;G
+ G[Reflection Agent]-- Feedback Loop --&gt;A
+</code></pre></div>
+<ul>
+<li><strong>Validator</strong> Generate tasks on detected issues. Re-evaluated after each change to the codebase</li>
+<li><strong>Task Manager</strong> Queued by priority and passed to Task runners</li>
+<li><strong>Task Runners</strong> Understand how to handle specific types and errors and orchestrates agents.</li>
+<li><strong>Analyzer Agent</strong> Analyze migration issues and generate an LLM fix</li>
+<li><strong>MavenCompiler Agent</strong> Check compilation after fix</li>
+<li><strong>MavenDependency Agent</strong> Check dependencies after fix</li>
+<li><strong>Reflection Agent</strong> callibrate the source in conjunction to other agents. </li>
+</ul>
+<hr />
+<h2 id="expected-behavior">✅ Expected Behavior<a class="headerlink" href="#expected-behavior" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Incident suggestions appear</li>
+<li>You can select effort level and apply changes</li>
+<li>Logs are saved in <code>.vscode/konveyor-logs/</code></li>
+<li>You can validate using:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>mvn<span class="w"> </span>clean<span class="w"> </span>install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mvn<span class="w"> </span>compile
+</code></pre></div>
+<hr />
+<h2 id="example-project-structure">📁 Example Project Structure<a class="headerlink" href="#example-project-structure" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>coolstore/
+├──<span class="w"> </span>.vscode/
+│<span class="w">   </span>└──<span class="w"> </span>settings.json
+├──<span class="w"> </span>pom.xml
+├──<span class="w"> </span>src/
+└──<span class="w"> </span>...
+</code></pre></div>
+<hr />
+<h2 id="references">📎 References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li>🔗 <a href="https://github.com/konveyor/editor-extensions">Konveyor AI Editor Extension</a></li>
+<li>🧪 <a href="https://github.com/rrbanda/coolstore">Coolstore Demo App</a></li>
+<li>🧭 <a href="https://github.com/konveyor/kai/blob/main/docs/scenarios/javaEE_to_quarkus/README.md">Full Kai Migration Demo (JavaEE → Quarkus)</a></li>
+<li>💬 <a href="https://konveyor.io/join-slack">Join Konveyor on Slack</a></li>
+</ul>
+<hr />
+<p>```</p>
+<p>Let me know if you want this pushed into your GitHub repo or saved as a file.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.expand", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
