@@ -9,7 +9,7 @@ RUN echo "fastestmirror=True" >> /etc/dnf/dnf.conf && \
     echo "skip_if_unavailable=True" >> /etc/dnf/dnf.conf && \
     echo "zchunk=False" >> /etc/dnf/dnf.conf
 
-# Install dependencies required by Konveyor AI + typical tools
+# Install dependencies required by Developer Ligthspeed for MTA + typical tools
 RUN dnf clean all && \
     dnf install -y --nobest --allowerasing \
         python3.11 python3.11-devel \
@@ -20,8 +20,8 @@ RUN dnf clean all && \
     && dnf clean all
 
 # Add Kai extension from GitHub release
-RUN curl -L -o /konveyor.vsix https://github.com/konveyor/editor-extensions/releases/download/v0.2.0-beta.1/konveyor-0.2.0-beta.1.vsix
+RUN curl -L -o /mta-vscode-extension.vsix https://github.com/migtools/editor-extensions/releases/download/v8.0.3/mta-vscode-extension-8.0.3.vsix
 
-ENV DEFAULT_EXTENSIONS=/konveyor.vsix   
+ENV DEFAULT_EXTENSIONS=/mta-vscode-extension.vsix   
 
 USER user
